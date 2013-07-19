@@ -119,10 +119,10 @@
   "provisioners": [
     {
       "override": {
-        "virtualbox": {
+        "devfort-ubuntu-13.04-provisionerless": {
           "execute_command": "echo 'vagrant'|sudo -S sh '{{.Path}}'"
         },
-        "virtualbox-large": {
+        "devfort-ubuntu-13.04-provisionerless-120gb": {
           "execute_command": "echo 'vagrant'|sudo -S sh '{{.Path}}'"
         }
       },
