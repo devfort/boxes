@@ -113,7 +113,7 @@
   "post-processors": [
     {
       "type": "vagrant",
-      "output": "{{.Provider}}.box"
+      "output": "{{ .BuildName }}-{{.Provider}}.box"
     }
   ],
   "provisioners": [
