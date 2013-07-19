@@ -11,4 +11,4 @@ Todo
 ----
 
 - Work out how to install Chef on a fort (in lieu of vagrant-omnibus)
-- Auto-upload builds using Travis?
+- Auto-upload builds using Travis? (See https://gist.github.com/mheffner/3828710)
