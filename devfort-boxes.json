@@ -32,7 +32,7 @@
       "boot_wait": "10s",
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "guest_os_type": "Ubuntu_64",
-      "http_directory": "http",
+      "http_directory": "box_setup/http",
       "shutdown_command": "echo 'shutdown -P now' > shutdown.sh; echo 'vagrant'|sudo -S sh 'shutdown.sh'",
       "ssh_password": "vagrant",
       "ssh_port": 22,
@@ -87,7 +87,7 @@
       "disk_size": 120000,
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "guest_os_type": "Ubuntu_64",
-      "http_directory": "http",
+      "http_directory": "box_setup/http",
       "shutdown_command": "echo 'shutdown -P now' > shutdown.sh; echo 'vagrant'|sudo -S sh 'shutdown.sh'",
       "ssh_password": "vagrant",
       "ssh_port": 22,
@@ -124,13 +124,13 @@
         }
       },
       "scripts": [
-        "scripts/update.sh",
-        "scripts/vagrant.sh",
-        "scripts/sshd.sh",
-        "scripts/networking.sh",
-        "scripts/sudoers.sh",
-        "scripts/cleanup.sh",
-        "scripts/minimize.sh"
+        "box_setup/scripts/update.sh",
+        "box_setup/scripts/vagrant.sh",
+        "box_setup/scripts/sshd.sh",
+        "box_setup/scripts/networking.sh",
+        "box_setup/scripts/sudoers.sh",
+        "box_setup/scripts/cleanup.sh",
+        "box_setup/scripts/minimize.sh"
       ],
       "type": "shell"
     }
