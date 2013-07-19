@@ -111,7 +111,10 @@
     }
   ],
   "post-processors": [
-    "vagrant"
+    {
+      "type": "vagrant",
+      "output": "{{.Provider}}.box"
+    }
   ],
   "provisioners": [
     {
