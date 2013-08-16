@@ -3,8 +3,9 @@
     {
       "name": "devfort-ubuntu-13.04-provisionerless",
       "type": "virtualbox",
-      "iso_md5": "7d335ca541fc4945b674459cde7bffb9",
       "iso_url": "http://releases.ubuntu.com/13.04/ubuntu-13.04-server-amd64.iso",
+      "iso_checksum": "7d335ca541fc4945b674459cde7bffb9",
+      "iso_checksum_type": "md5",
       "boot_command": [
         "<esc><wait>",
         "<esc><wait>",
@@ -57,8 +58,9 @@
     {
       "name": "devfort-ubuntu-13.04-provisionerless-120gb",
       "type": "virtualbox",
-      "iso_md5": "7d335ca541fc4945b674459cde7bffb9",
       "iso_url": "http://releases.ubuntu.com/13.04/ubuntu-13.04-server-amd64.iso",
+      "iso_checksum": "7d335ca541fc4945b674459cde7bffb9",
+      "iso_checksum_type": "md5",
       "boot_command": [
         "<esc><wait>",
         "<esc><wait>",
@@ -112,8 +114,8 @@
   ],
   "post-processors": [
     {
-      "type": "vagrant",
-      "output": "{{ .BuildName }}-{{.Provider}}.box"
+      "output": "{{ .BuildName }}-{{.Provider}}.box",
+      "type": "vagrant"
     }
   ],
   "provisioners": [
