@@ -5,7 +5,7 @@ Current boxes
 
 The following Vagrant baseboxes are publicly available and were built using this project. These boxes are provisionerless; Vagrant can be instructed to install Chef at runtime using the [vagrant-omnibus plugin](https://github.com/schisamo/vagrant-omnibus) (not sure how well this will work on a fort yet).
 
-- devfort-ubuntu-13.04 and devfort-ubuntu-13.04-120gb for VirtualBox
+- [devfort-ubuntu-13.04](http://devfort.s3.amazonaws.com/boxes/devfort-ubuntu-13.04-provisionerless-virtualbox.box) and [devfort-ubuntu-13.04-120gb](http://devfort.s3.amazonaws.com/boxes/devfort-ubuntu-13.04-provisionerless-120gb-virtualbox.box) for VirtualBox
 
 Todo
 ----
