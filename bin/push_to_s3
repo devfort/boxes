@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+S3_BUCKET="devfort"
+S3_ACCESS_KEY="AKIAIRRFKAWFNAB52BQQ"
+S3_POLICY="ewogICAgImV4cGlyYXRpb24iOiAiMjAyMC0wMS0wMVQxMjowMDowMC4wMDBaIiwKICAgICJjb25kaXRpb25zIjogWwogICAgICAgIHsiYWNsIjogInB1YmxpYy1yZWFkIiB9LAogICAgICAgIHsiYnVja2V0IjogImRldmZvcnQiIH0sCiAgICAgICAgWyJzdGFydHMtd2l0aCIsICIka2V5IiwgImJveGVzLyJdLAogICAgICAgIFsiY29udGVudC1sZW5ndGgtcmFuZ2UiLCAyMDQ4LCAxMDc0MDAwMDAwXSwKICAgICAgICBbImVxIiwgIiRDb250ZW50LVR5cGUiLCAiYXBwbGljYXRpb24vb2N0ZXQtc3RyZWFtIl0KICAgIF0KfQ=="
+S3_SIGNATURE="Hzx3GKOJGvwmZkB0o4TphmE6ctg="
+
+for FILE in *.box; do
+  BASE=`basename $FILE`
+  echo $BASE
+  curl --progress-bar \
+      -F "key=boxes/$BASE" \
+      -F "acl=public-read" \
+      -F "AWSAccessKeyId=$S3_ACCESS_KEY" \
+      -F "Policy=$S3_POLICY" \
+      -F "Signature=$S3_SIGNATURE" \
+      -F "Content-Type=application/octet-stream" \
+      -F "file=@$FILE" \
+      https://$S3_BUCKET.s3.amazonaws.com/ \
+      > /dev/null
+  if [ $? -ne 0 ]; then
+    exit 1
+  fi
+done
