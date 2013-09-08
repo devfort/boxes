@@ -15,6 +15,11 @@ Getting Started
 2. Run `packer build devfort-boxes.json` to build the baseboxes. This will (eventually) result in a number of `.box` files in this directory.
 3. Run `bin/push_to_s3` to upload the boxes to `http://devfort.s3.amazonaws.com/`. If you want to upload them elsewhere, you’re on your own.
 
+Using the boxes
+---------------
+
+Either manually add the boxes to your Vagrant install (`vagrant box add <name> <url>`), or specify their URL in your Vagrantfile using `config.vm.box_url`.
+
 Todo
 ----
 
