@@ -9,10 +9,10 @@ if [ -f /home/vagrant/VBoxGuestAdditions.iso ]; then
     rm *.iso
 fi
 
-if [ -f /home/vagrant/.vmfusion_version ]; then
+if [ -f /home/vagrant/vmware-tools-linux.iso ]; then
     #Set Linux-specific paths and ISO filename
     home_dir="/home/vagrant"
-    iso_name="linux.iso"
+    iso_name="vmware-tools-linux.iso"
     mount_point="/tmp/vmware-tools"
     #Run install, unmount ISO and remove it
     mkdir ${mount_point}
