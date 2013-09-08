@@ -1,11 +1,22 @@
 {
+  "variables": {
+    "box_cpus": "1",
+    "box_memory": "384",
+    "http_directory": "box_setup/http",
+    "iso_checksum": "7d335ca541fc4945b674459cde7bffb9",
+    "iso_checksum_type": "md5",
+    "iso_url": "http://mirrors.melbourne.co.uk/ubuntu-releases/raring/ubuntu-13.04-server-amd64.iso",
+    "shutdown_command": "echo 'shutdown -P now' > shutdown.sh; echo 'vagrant'|sudo -S sh 'shutdown.sh'",
+    "ssh_password": "vagrant",
+    "ssh_username": "vagrant"
+  },
   "builders": [
     {
       "name": "devfort-ubuntu-13.04-provisionerless",
       "type": "virtualbox",
-      "iso_url": "http://mirrors.melbourne.co.uk/ubuntu-releases/raring/ubuntu-13.04-server-amd64.iso",
-      "iso_checksum": "7d335ca541fc4945b674459cde7bffb9",
-      "iso_checksum_type": "md5",
+      "iso_url": "{{user `iso_url`}}",
+      "iso_checksum": "{{user `iso_checksum`}}",
+      "iso_checksum_type": "{{user `iso_checksum_type`}}",
       "boot_command": [
         "<esc><wait>",
         "<esc><wait>",
@@ -31,31 +42,31 @@
         "<enter><wait>"
       ],
       "guest_os_type": "Ubuntu_64",
-      "http_directory": "box_setup/http",
-      "shutdown_command": "echo 'shutdown -P now' > shutdown.sh; echo 'vagrant'|sudo -S sh 'shutdown.sh'",
-      "ssh_password": "vagrant",
-      "ssh_username": "vagrant",
+      "http_directory": "{{user `http_directory`}}",
+      "shutdown_command": "{{user `shutdown_command`}}",
+      "ssh_password": "{{user `ssh_password`}}",
+      "ssh_username": "{{user `ssh_username`}}",
       "vboxmanage": [
         [
           "modifyvm",
           "{{.Name}}",
           "--memory",
-          "384"
+          "{{user `box_memory`}}"
         ],
         [
           "modifyvm",
           "{{.Name}}",
           "--cpus",
-          "1"
+          "{{user `box_cpus`}}"
         ]
-      ],
+      ]
     },
     {
       "name": "devfort-ubuntu-13.04-provisionerless-120gb",
       "type": "virtualbox",
-      "iso_url": "http://mirrors.melbourne.co.uk/ubuntu-releases/raring/ubuntu-13.04-server-amd64.iso",
-      "iso_checksum": "7d335ca541fc4945b674459cde7bffb9",
-      "iso_checksum_type": "md5",
+      "iso_url": "{{user `iso_url`}}",
+      "iso_checksum": "{{user `iso_checksum`}}",
+      "iso_checksum_type": "{{user `iso_checksum_type`}}",
       "boot_command": [
         "<esc><wait>",
         "<esc><wait>",
@@ -82,24 +93,24 @@
       ],
       "disk_size": 120000,
       "guest_os_type": "Ubuntu_64",
-      "http_directory": "box_setup/http",
-      "shutdown_command": "echo 'shutdown -P now' > shutdown.sh; echo 'vagrant'|sudo -S sh 'shutdown.sh'",
-      "ssh_password": "vagrant",
-      "ssh_username": "vagrant",
+      "http_directory": "{{user `http_directory`}}",
+      "shutdown_command": "{{user `shutdown_command`}}",
+      "ssh_password": "{{user `ssh_password`}}",
+      "ssh_username": "{{user `ssh_username`}}",
       "vboxmanage": [
         [
           "modifyvm",
           "{{.Name}}",
           "--memory",
-          "384"
+          "{{user `box_memory`}}"
         ],
         [
           "modifyvm",
           "{{.Name}}",
           "--cpus",
-          "1"
+          "{{user `box_cpus`}}"
         ]
-      ],
+      ]
     }
   ],
   "post-processors": [
