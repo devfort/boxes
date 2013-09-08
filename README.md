@@ -13,7 +13,7 @@ Getting Started
 
 1. [Install Packer](http://www.packer.io/), [VirtualBox](https://www.virtualbox.org), and [VMWare Fusion](http://www.vmware.com/products/fusion/)
 2. Run `packer build devfort-boxes.json` to build the baseboxes. This will (eventually) result in a number of `.box` files in this directory.
-3. Run `bin/push_to_s3` to upload the boxes to `http://devfort.s3.amazonaws.com/boxes/`. If you want to upload them elsewhere, you’re on your own.
+3. Run `bin/push_to_s3` to upload the boxes to `http://devfort.s3.amazonaws.com/boxes/`. If you want to upload them elsewhere, you’re on your own (but look at `s3_policy.json`, `bin/generate_upload_policy`, and `bin/push_to_s3`).
 
 Using the boxes
 ---------------
