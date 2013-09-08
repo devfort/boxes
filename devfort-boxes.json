@@ -154,6 +154,50 @@
           "{{user `box_cpus`}}"
         ]
       ]
+    },
+    {
+      "name": "devfort-ubuntu-13.04-provisionerless-120gb-vmware",
+      "type": "vmware",
+      "iso_url": "{{user `iso_url`}}",
+      "iso_checksum": "{{user `iso_checksum`}}",
+      "iso_checksum_type": "{{user `iso_checksum_type`}}",
+      "boot_command": [
+        "<esc><wait>",
+        "<esc><wait>",
+        "<enter><wait>",
+        "/install/vmlinuz<wait>",
+        " auto<wait>",
+        " console-setup/ask_detect=false<wait>",
+        " console-setup/layoutcode=us<wait>",
+        " console-setup/modelcode=pc105<wait>",
+        " debconf/frontend=noninteractive<wait>",
+        " debian-installer=en_US<wait>",
+        " fb=false<wait>",
+        " initrd=/install/initrd.gz<wait>",
+        " kbd-chooser/method=us<wait>",
+        " keyboard-configuration/layout=USA<wait>",
+        " keyboard-configuration/variant=USA<wait>",
+        " locale=en_US<wait>",
+        " netcfg/get_domain=vm<wait>",
+        " netcfg/get_hostname=vagrant<wait>",
+        " noapic<wait>",
+        " preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg<wait>",
+        " -- <wait>",
+        "<enter><wait>"
+      ],
+      "disk_size": 120000,
+      "guest_os_type": "ubuntu-64",
+      "http_directory": "{{user `http_directory`}}",
+      "shutdown_command": "{{user `shutdown_command`}}",
+      "ssh_password": "{{user `ssh_password`}}",
+      "ssh_username": "{{user `ssh_username`}}",
+      "tools_upload_flavor": "linux",
+      "tools_upload_path": "vmware-tools-{{.Flavor}}.iso",
+      "vmx_data": {
+        "memsize": "384",
+        "numvcpus": "1",
+        "cpuid.coresPerSocket": "1"
+      }
     }
   ],
   "post-processors": [
@@ -173,6 +217,9 @@
         },
         "devfort-ubuntu-13.04-provisionerless-120gb-virtualbox": {
           "execute_command": "echo 'vagrant'|sudo -S sh '{{.Path}}'"
+        },
+        "devfort-ubuntu-13.04-provisionerless-120gb-vmware": {
+          "execute_command": "echo 'vagrant'|sudo -S sh '{{.Path}}'"
         }
       },
       "scripts": [
@@ -188,4 +235,3 @@
     }
   ]
 }
-
