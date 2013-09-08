@@ -1,9 +1,8 @@
 #!/bin/bash -eux
 
-if [ -f /home/vagrant/.vbox_version ]; then
+if [ -f /home/vagrant/VBoxGuestAdditions.iso ]; then
     mkdir /tmp/vbox
-    VER=$(cat /home/vagrant/.vbox_version)
-    mount -o loop VBoxGuestAdditions_$VER.iso /tmp/vbox 
+    mount -o loop VBoxGuestAdditions.iso /tmp/vbox
     sh /tmp/vbox/VBoxLinuxAdditions.run
     umount /tmp/vbox
     rmdir /tmp/vbox
