@@ -3,17 +3,17 @@
     "box_cpus": "1",
     "box_memory": "384",
     "http_directory": "box_setup/http",
-    "iso_checksum": "7d335ca541fc4945b674459cde7bffb9",
+    "iso_checksum": "ca2531b8cd79ea5b778ede3a524779b9",
     "iso_checksum_type": "md5",
-    "iso_url": "http://mirrors.melbourne.co.uk/ubuntu-releases/raring/ubuntu-13.04-server-amd64.iso",
+    "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04.1-server-amd64.iso",
     "shutdown_command": "echo 'shutdown -P now' > shutdown.sh; echo 'vagrant'|sudo -S sh 'shutdown.sh'",
     "ssh_password": "vagrant",
     "ssh_username": "vagrant"
   },
   "builders": [
     {
-      "name": "devfort-ubuntu-13.04-provisionerless-virtualbox",
-      "type": "virtualbox",
+      "name": "devfort-ubuntu-14.04-provisionerless-virtualbox",
+      "type": "virtualbox-iso",
       "iso_url": "{{user `iso_url`}}",
       "iso_checksum": "{{user `iso_checksum`}}",
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
@@ -62,8 +62,8 @@
       ]
     },
     {
-      "name": "devfort-ubuntu-13.04-provisionerless-vmware",
-      "type": "vmware",
+      "name": "devfort-ubuntu-14.04-provisionerless-vmware",
+      "type": "vmware-iso",
       "iso_url": "{{user `iso_url`}}",
       "iso_checksum": "{{user `iso_checksum`}}",
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
@@ -105,8 +105,8 @@
       }
     },
     {
-      "name": "devfort-ubuntu-13.04-provisionerless-120gb-virtualbox",
-      "type": "virtualbox",
+      "name": "devfort-ubuntu-14.04-provisionerless-120gb-virtualbox",
+      "type": "virtualbox-iso",
       "iso_url": "{{user `iso_url`}}",
       "iso_checksum": "{{user `iso_checksum`}}",
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
@@ -156,8 +156,8 @@
       ]
     },
     {
-      "name": "devfort-ubuntu-13.04-provisionerless-120gb-vmware",
-      "type": "vmware",
+      "name": "devfort-ubuntu-14.04-provisionerless-120gb-vmware",
+      "type": "vmware-iso",
       "iso_url": "{{user `iso_url`}}",
       "iso_checksum": "{{user `iso_checksum`}}",
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
@@ -209,16 +209,16 @@
   "provisioners": [
     {
       "override": {
-        "devfort-ubuntu-13.04-provisionerless-virtualbox": {
+        "devfort-ubuntu-14.04-provisionerless-virtualbox": {
           "execute_command": "echo 'vagrant'|sudo -S sh '{{.Path}}'"
         },
-        "devfort-ubuntu-13.04-provisionerless-vmware": {
+        "devfort-ubuntu-14.04-provisionerless-vmware": {
           "execute_command": "echo 'vagrant'|sudo -S sh '{{.Path}}'"
         },
-        "devfort-ubuntu-13.04-provisionerless-120gb-virtualbox": {
+        "devfort-ubuntu-14.04-provisionerless-120gb-virtualbox": {
           "execute_command": "echo 'vagrant'|sudo -S sh '{{.Path}}'"
         },
-        "devfort-ubuntu-13.04-provisionerless-120gb-vmware": {
+        "devfort-ubuntu-14.04-provisionerless-120gb-vmware": {
           "execute_command": "echo 'vagrant'|sudo -S sh '{{.Path}}'"
         }
       },
